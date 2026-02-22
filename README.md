@@ -1,2 +1,0 @@
-# droppfy
-Suplementação e Vida
