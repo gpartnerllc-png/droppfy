@@ -294,7 +294,7 @@
         
             };
 
-            const mensagem = `🔔 *NOVO CADASTRO DROPPFY*\n\n👤 Nome: ${dados.nome}\n📱 WhatsApp: ${dados.whatsapp}\n🎯 Interesse: ${dados.interesse}`;
+            const mensagem = `🔔 *NOVO CADASTRO DROPPFY*\n\n👤 Nome: ${dados.nome}\n📱 WhatsApp: ${dados.whatsapp}\n📦 Produto: ${dados.nomedoproduto}\n🎯 Interesse: ${dados.interesse}`;
 
             fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
                 method: 'POST',
