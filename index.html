@@ -150,8 +150,8 @@
                 <div class="form-group">
                     <label>Seu Interesse</label>
                     <select id="interesse">
-                        <option value="Revenda">Revender (Atacado)</option>
-                        <option value="Compra Unica">Compra Única (Varejo)</option>
+                        <option value="Revenda">Revender kit 5 (Atacado)</option>
+                        <option value="Compra Unica">Compra Única (Varejo)</option>                        
                     </select>
                 </div>
                 <button type="submit" class="btn-comprar">ENVIAR AGORA</button>
@@ -169,20 +169,6 @@
                 <div class="swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-muscle-pack-egg-coco-frappe-po-900g-1.png"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-muscle-pack-egg-coco-frappe-po-900g.jpg"></div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-                <div class="produto-info">
-                    <h3>Whey Protein Isolado</h3>
-                    <p>O melhor para sua performance.</p>
-                    <button class="btn-comprar" onclick="abrirModal()">COMPRE/CADASTRE-SE</button>
-                </div>
-            </div>
-
-            <div class="card-produto">
-                <div class="swiper">
-                    <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-powerfuel-creatine-po-300g-1.png"></div>
                         <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_whey-protein-powerfuel-protein-vanilla-900g-282.png"></div>
                         <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_whey-protein-powerfuel-protein-coconut-900g-283.png"></div>
@@ -197,9 +183,9 @@
                     <div class="swiper-pagination"></div>
                 </div>
                 <div class="produto-info">
-                    <h3>Creatina Monohidratada</h3>
+                    <h3>Creatina, Wheys, Gomas, etc...</h3>
                     <p>Força máxima garantida.</p>
-                    <button class="btn-comprar" onclick="abrirModal()">COMPRE/CADASTRE-SE</button>
+                    <button class="btn-comprar" onclick="abrirModal()">CADASTRE-SE</button>
                 </div>
             </div>
 
@@ -207,7 +193,7 @@
         <div class="container" style="text-align: center;">
             <p><strong>DROPPFY</strong> - Projeto X-CDB</p>
             <p>VITAMEDIC INDUSTRIA FARMACEUTICA - CNPJ: 30.222.814/0001-31</p>
-            <p>&copy; 2026 Todos os direitos reservados.</p>
+            <p>&copy; Todos os direitos reservados.</p>
             <div>
                 <h4 style="text-transform: uppercase; letter-spacing: 1px;">Segurança</h4>
                 <img src="https://images.yampi.me/assets/stores/droppfy/uploads/icon/65f3d8c635540.png" width="40" alt="Selo Segurança">
@@ -240,8 +226,7 @@
             const dados = {
                 nome: document.getElementById('nome').value,
                 whatsapp: document.getElementById('whatsapp').value,
-                interesse: document.getElementById('interesse').value,
-                produto: document.getElementById('produto').value
+                interesse: document.getElementById('interesse').value               
             };
 
             const mensagem = `🔔 *NOVO CADASTRO DROPPFY*\n\n👤 Nome: ${dados.nome}\n📱 WhatsApp: ${dados.whatsapp}\n🎯 Interesse: ${dados.interesse}`;
