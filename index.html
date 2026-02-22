@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel='icon' type='image/png' href='https://images.yampi.me/assets/stores/droppfy/uploads/icon/65f3d8c635540.png'>
-    <link rel='apple-touch-icon' href='https://images.yampi.me/assets/stores/droppfy/uploads/icon/65f3d8c635540.png'>
-    <link rel='icon' sizes='192x192' href='https://images.yampi.me/assets/stores/droppfy/uploads/icon/65f3d8c635540.png'>
     
     <style>
         :root {
@@ -16,15 +14,20 @@
             --secondary: #2f3d34;
             --cta: #000;
             --cta_i: #fff;
-            --grayLight: #efefef;
-            --dark: #000;
+            --grayLight: #f5f5f7;
+            --dark: #1d1d1f;
             --light: #fff;
+            --apple-shadow: 0 8px 30px rgba(0,0,0,0.12);
             --body-font: 'Hind', sans-serif;
         }
-        body { font-family: var(--body-font); margin: 0; background: var(--light); color: var(--dark); }
+
+        body { font-family: var(--body-font); margin: 0; background: #fff; color: var(--dark); overflow-x: hidden; }
+
+        /* HEADER APPLE STYLE */
         header {
-            background: var(--light);
-            border-bottom: 1px solid var(--grayLight);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
             padding: 10px 48px;
             display: flex;
             justify-content: space-between;
@@ -33,328 +36,327 @@
             top: 0;
             z-index: 1000;
         }
-        .logo { font-weight: 700; font-size: 24px; letter-spacing: 2px; }
+
+        .logo { font-weight: 700; font-size: 22px; letter-spacing: -0.5px; }
+
+        /* BOTÕES 3D BORDADOS */
+        .btn-comprar {
+            background: var(--cta);
+            color: var(--cta_i);
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.1);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+
+        .btn-comprar:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            background: #333;
+        }
+
+        /* GRID E CARDS 3D */
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .grid-produtos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        
+        .card-produto { 
+            border: none; 
+            border-radius: 22px; 
+            overflow: hidden; 
+            background: #fff; 
+            transition: all 0.5s ease;
+            box-shadow: var(--apple-shadow);
+        }
+
+        .card-produto:hover {
+            transform: scale(1.02);
+        }
+
+        .swiper { width: 100%; height: 280px; background: #fbfbfd; }
+        .swiper-slide img { width: 100%; height: 100%; object-fit: contain; padding: 20px; }
+
+        .produto-info { padding: 25px; text-align: center; }
+        .produto-info h3 { font-size: 18px; margin-bottom: 8px; font-weight: 600; }
+        .produto-info p { color: #86868b; font-size: 14px; margin-bottom: 20px; }
+
+        /* SACOLA DE COMPRAS LATERAL */
+        #carrinho-lateral {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 350px;
+            height: 100%;
+            background: #fff;
+            z-index: 3000;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            transition: 0.5s;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #carrinho-lateral.active { right: 0; }
+
+        .item-carrinho {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* MODAL CADASTRO */
         .modal {
             display: none;
             position: fixed;
-            z-index: 2000;
+            z-index: 4000;
             left: 0; top: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(8px);
         }
         .modal-content {
             background: white;
             margin: 5% auto;
-            padding: 30px;
+            padding: 40px;
             width: 90%;
-            max-width: 500px;
-            border-radius: 8px;
+            max-width: 450px;
+            border-radius: 28px;
+            box-shadow: var(--apple-shadow);
         }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .grid-produtos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .card-produto { border: 1px solid var(--grayLight); border-radius: 8px; overflow: hidden; background: #fff; height: fit-content; }
-        .swiper { width: 100%; height: 300px; }
-        .swiper-slide img { width: 100%; height: 100%; object-fit: contain; }
-        .produto-info { padding: 20px; text-align: center; }
-        .btn-comprar {
-            background: var(--cta);
-            color: var(--cta_i);
-            padding: 15px;
-            display: block;
-            text-decoration: none;
-            font-weight: 700;
-            border: none;
-            width: 100%;
+
+        /* ICONE SACOLA FLUTUANTE */
+        .sacola-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--dark);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            transition: 0.3s;
+            z-index: 2500;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
-        #status-msg { margin-top: 10px; font-size: 14px; color: green; display: none; }
+        .badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #ff3b30;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo">DROPPFY</div>
-        <button onclick="abrirModal()" class="btn-comprar" style="width: auto; padding: 10px 20px; border-radius: 20px;">SEJA UM REVENDEDOR</button>
+        <div style="display: flex; gap: 15px; align-items: center;">
+            <button onclick="abrirModal()" class="btn-comprar" style="padding: 8px 20px; border-radius: 20px; font-size: 13px;">REVENDER</button>
+        </div>
     </header>
+
+    <div class="sacola-float" onclick="toggleCarrinho()">
+        <span class="badge" id="cart-count">0</span>
+        🛒
+    </div>
+
+    <div id="carrinho-lateral">
+        <div style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <h2 style="margin:0">Sua Sacola</h2>
+            <button onclick="toggleCarrinho()" style="background:none; border:none; font-size: 20px; cursor:pointer;">✕</button>
+        </div>
+        <div id="itens-lista" style="flex-grow: 1; overflow-y: auto;">
+            <p id="carrinho-vazio" style="text-align: center; color: #888;">Sua sacola está vazia.</p>
+        </div>
+        <div id="carrinho-footer" style="display:none; margin-top: 20px;">
+            <button onclick="irParaCadastro()" class="btn-comprar" style="width: 100%;">FINALIZAR PEDIDO / CADASTRO</button>
+        </div>
+    </div>
 
     <div id="modalCadastro" class="modal">
         <div class="modal-content">
-            <h3>Cadastro de Revendedor / Cliente</h3>
+            <h3 style="margin-top:0">Finalizar Cadastro</h3>
+            <p style="font-size: 14px; color: #666;">Para concluir o pedido dos itens selecionados, preencha os dados abaixo.</p>
             <form id="formIntegracao">
-                <div class="form-group">
-                    <label>Nome Completo</label>
-                    <input type="text" id="nome" required>
+                <div class="form-group" style="margin-bottom:15px;">
+                    <label style="display:block; font-weight:600; margin-bottom:5px;">Nome Completo</label>
+                    <input type="text" id="nome" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;" required>
                 </div>
-                <div class="form-group">
-                    <label>WhatsApp</label>
-                    <input type="tel" id="whatsapp" placeholder="(00) 00000-0000" required>
+                <div class="form-group" style="margin-bottom:15px;">
+                    <label style="display:block; font-weight:600; margin-bottom:5px;">WhatsApp</label>
+                    <input type="tel" id="whatsapp" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;" placeholder="(00) 00000-0000" required>
                 </div>
-                <div class="form-group">
-                    <label>Interesse</label>
-                    <select id="interesse">
+                <div class="form-group" style="margin-bottom:20px;">
+                    <label style="display:block; font-weight:600; margin-bottom:5px;">Tipo de Cliente</label>
+                    <select id="interesse" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;">
                         <option value="Compra Unica">Compra Única</option>
-                        <option value="Revenda">Quero Revender em Atacado</option>
+                        <option value="Revenda">Quero Revender (Atacado)</option>
                     </select>
                 </div>
-                <button type="submit" class="btn-comprar">FINALIZAR CADASTRO</button>
-                <p id="status-msg">Enviando para o sistema</p>
-                <button type="button" onclick="fecharModal()" style="background:none; border:none; color:red; cursor:pointer; margin-top:10px;">Cancelar</button>
+                <button type="submit" class="btn-comprar" style="width: 100%;">ENVIAR PEDIDO AGORA</button>
+                <button type="button" onclick="fecharModal()" style="background:none; border:none; color:#888; cursor:pointer; width:100%; margin-top:15px;">Voltar</button>
             </form>
         </div>
     </div>
 
     <div class="container">
-        <h2 style="text-align: center;">Produtos Premium</h2>
+        <h2 style="text-align: center; font-size: 32px; letter-spacing: -1px; margin-bottom: 40px;">Produtos Premium</h2>
         <div class="grid-produtos">
             
             <div class="card-produto">
                 <div class="swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-muscle-pack-egg-coco-frappe-po-900g-1.png" alt="Foto 1"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-muscle-pack-egg-coco-frappe-po-900g.jpg" alt="Foto 2"></div>                        
+                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-muscle-pack-egg-coco-frappe-po-900g-1.png"></div>
+                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-muscle-pack-egg-coco-frappe-po-900g.jpg"></div>
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
                 <div class="produto-info">
                     <h3>Whey Protein Isolado</h3>
                     <p>O melhor para sua performance.</p>
-                    <button class="btn-comprar" onclick="abrirModal()">COMPRE/CADASTRE-SE</button>
+                    <button class="btn-comprar" onclick="adicionarAoCarrinho('Whey Protein Isolado')">ADICIONAR À SACOLA</button>
                 </div>
             </div>
 
             <div class="card-produto">
                 <div class="swiper">
-                    <div class="swiper-wrapper">                        
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-powerfuel-creatine-po-300g-1.png" alt="Foto 2"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-powerfuel-creatine-po-300g.jpg" alt="Foto 3"></div>                        
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-powerfuel-creatine-po-300g-1.png"></div>
+                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-powerfuel-creatine-po-300g.jpg"></div>
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
                 <div class="produto-info">
                     <h3>Creatina Monohidratada</h3>
                     <p>Força máxima garantida.</p>
-                    <button class="btn-comprar" onclick="abrirModal()">COMPRE/CADASTRE-SE</button>
+                    <button class="btn-comprar" onclick="adicionarAoCarrinho('Creatina Monohidratada')">ADICIONAR À SACOLA</button>
                 </div>
             </div>
 
             <div class="card-produto">
                 <div class="swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_whey-protein-powerfuel-protein-vanilla-900g-282.png" alt="Foto 1"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_whey-protein-powerfuel-protein-vanilla-900g-282-1.png" alt="Foto 2"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_whey-protein-powerfuel-protein-vanilla-900g-282-2.png" alt="Foto 3"></div>
+                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_warm-up-indian-spices-acelerador-metabolico-natural-110g-142.png"></div>
                     </div>
-                    <div class="swiper-pagination"></div>
                 </div>
                 <div class="produto-info">
-                    <h3>Whey Protein - Powerfuel Vanilla</h3>
-                    <p>Nutrição de elite para quem não aceita menos que o topo.</p>
-                    <button class="btn-comprar" onclick="abrirModal()">COMPRE/CADASTRE-SE</button>
-                </div>
-            </div>
-
-            <div class="card-produto">
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_whey-protein-powerfuel-protein-coconut-900g-283.png" alt="Foto 1"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_whey-protein-powerfuel-protein-coconut-900g-283-1.png" alt="Foto 2"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_whey-protein-powerfuel-protein-coconut-900g-283-2.png" alt="Foto 3"></div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-                <div class="produto-info">
-                    <h3>Whey Protein - Powerfuel Coco Nut</h3>
-                    <p>A energia tropical que hidrata seu corpo, reconstrói músculos ao máximo.</p>
-                    <button class="btn-comprar" onclick="abrirModal()">COMPRE/CADASTRE-SE</button>
-                </div>
-            </div>
-
-            <div class="card-produto">
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_whey-protein-powerfuel-protein-chocolate-900g-284.png" alt="Foto 1"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_whey-protein-powerfuel-protein-chocolate-900g-284-1.png" alt="Foto 2"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_whey-protein-powerfuel-protein-chocolate-900g-284-2.png" alt="Foto 3"></div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-                <div class="produto-info">
-                    <h3>Whey Protein - Powerfuel Chocollate</h3>
-                    <p>Onde o frescor da natureza te encontra.</p>
-                    <button class="btn-comprar" onclick="abrirModal()">COMPRE/CADASTRE-SE</button>
-                </div>
-            </div>
-
-            <div class="card-produto">
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-powerfuel-glutamine-po-300g.png" alt="Foto 1"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-powerfuel-glutamine-po-300g-1.jpg" alt="Foto 2"></div>                        
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-                <div class="produto-info">
-                    <h3>Powerfuel Glutamina</h3>
-                    <p>A barreira invencível que protege a sua imunidade.</p>
-                    <button class="btn-comprar" onclick="abrirModal()">COMPRE/CADASTRE-SE</button>
-                </div>
-            </div>
-            <div class="card-produto">
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_gm-goalmy-flexfuel-orange-c-30.png" alt="Foto 1"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_gm-goalmy-flexfuel-orange-c-30-1.jpg" alt="Foto 2"></div>                        
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-                <div class="produto-info">
-                    <h3>Goalmy Gummies Colágeno, Curcuna - Orange</h3>
-                    <p>Porque a sua melhor versão não tem limites.</p>
-                    <button class="btn-comprar" onclick="abrirModal()">COMPRE/CADASTRE-SE</button>
-                </div>
-            </div>
-            <div class="card-produto">
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_gm-goalmy-hair-skin-nails-strawberry-c-6.png" alt="Foto 1"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_gm-goalmy-hair-skin-nails-strawberry-c-6-1.jpg" alt="Foto 2"></div>                        
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-                <div class="produto-info">
-                    <h3>Goalmy Gummies Strawberry</h3>
-                    <p>Liberdade e leveza que alma merece.</p>
-                    <button class="btn-comprar" onclick="abrirModal()">COMPRE/CADASTRE-SE</button>
-                </div>
-            </div>
-            <div class="card-produto">
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_gm-goalmy-collagen-strawberry-c-60-1.png" alt="Foto 1"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_gm-goalmy-collagen-strawberry-c-60.jpg" alt="Foto 2"></div>                        
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-                <div class="produto-info">
-                    <h3>Goalmy Gummies Strawberry Colágeno</h3>
-                    <p>Mais que uma gummie, um ritual de amor.</p>
-                    <button class="btn-comprar" onclick="abrirModal()">COMPRE/CADASTRE-SE</button>
-                </div>
-            </div>
-            <div class="card-produto">
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-brainfuel-sports-cap-c-60.jpg" alt="Foto 1"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-brainfuel-sports-cap-c-60-1.jpg" alt="Foto 2"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-brainfuel-sports-cap-c-60-2.jpg" alt="Foto 3"></div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-                <div class="produto-info">
-                    <h3>Brainfuel Sports</h3>
-                    <p>Desperte a elasticidade da vida.</p>
-                    <button class="btn-comprar" onclick="abrirModal()">COMPRE/CADASTRE-SE</button>
-                </div>
-            </div>
-            <div class="card-produto">
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-brainfuel-acai-banana-po-c-450g.jpg" alt="Foto 1"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-brainfuel-acai-banana-po-c-450g-1.jpg" alt="Foto 2"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-brainfuel-acai-banana-po-c-450g-2.jpg" alt="Foto 3"></div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-                <div class="produto-info">
-                    <h3>Brainfuel Açai & Bannana</h3>
-                    <p>Onde o autocuidado encontra prazer.</p>
-                    <button class="btn-comprar" onclick="abrirModal()">COMPRE/CADASTRE-SE</button>
-                </div>
-            </div>
-            <div class="card-produto">
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_warm-up-indian-spices-acelerador-metabolico-natural-110g-142.png" alt="Foto 1"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_warm-up-po-110g.jpg" alt="Foto 2"></div>                        
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-                <div class="produto-info">
-                    <h3>Warm Up-Acelerador Metabólicos</h3>
+                    <h3>Warm Up Indian Spices</h3>
                     <p>Desperte o fogo interno.</p>
-                    <button class="btn-comprar" onclick="abrirModal()">COMPRE/CADASTRE-SE</button>
+                    <button class="btn-comprar" onclick="adicionarAoCarrinho('Warm Up Indian Spices')">ADICIONAR À SACOLA</button>
                 </div>
             </div>
 
-        </div> </div> <footer style="background-color: var(--grayLight); padding: 40px 20px; margin-top: 50px; border-top: 1px solid #ddd;">
-        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: left; margin: 0 auto;">
-            <div>
-                <h4 style="text-transform: uppercase; letter-spacing: 1px;">Atendimento</h4>
-                <p style="font-size: 14px; line-height: 1.6;">
-                    De segunda a sexta, das 9h às 22h.<br>
-                    <strong>E-mail:</strong> <a href="mailto:contato@droppfy.com" style="color: var(--dark); text-decoration: none;">contato@droppfy.com</a><br>
-                    <strong>Whatsapp:</strong> <a href="https://wa.me/5561982439081" target="_blank" style="color: var(--dark); text-decoration: none;">61 98243-9081</a>
-                </p>
-            </div>
-            <div>
-                <h4 style="text-transform: uppercase; letter-spacing: 1px;">Institucional</h4>
-                <p style="font-size: 14px; line-height: 1.6;">
-                    <a href="#" style="color: var(--dark); text-decoration: none;">Sobre a Droppfy</a><br>
-                    <a href="#" style="color: var(--dark); text-decoration: none;">Políticas de Privacidade</a><br>
-                    <a href="#" style="color: var(--dark); text-decoration: none;">Termos de Uso</a>
-                </p>
-            </div>
-            <div>
-                <h4 style="text-transform: uppercase; letter-spacing: 1px;">Segurança</h4>
-                <img src="https://images.yampi.me/assets/stores/droppfy/uploads/icon/65f3d8c635540.png" width="40" alt="Selo Segurança">
-                <p style="font-size: 12px;">Ambiente 100% Seguro</p>
-            </div>
         </div>
-        <div style="max-width: 1200px; margin: 40px auto 0; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; font-size: 11px; color: #666;">
-            <p>
-                VITAMEDIC INDUSTRIA FARMACEUTICA - CNPJ: 30.222.814/0001-31<br>
-                R. VPR 0 1 DT AGROINDUSTRIAL DE ANAPOLIS, ANÁPOLIS - GO, 75132-020
-            </p>
-            <p>&copy; 2026 <strong>DROPPFY</strong>. Todos os direitos reservados. Projeto X-CDB.</p>
+    </div>
+
+    <footer style="background-color: var(--grayLight); padding: 60px 20px; border-top: 1px solid #eee;">
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: left;">
+            <div>
+                <h4 style="text-transform: uppercase; font-size: 12px; color: #888;">Atendimento</h4>
+                <p style="font-size: 14px;">contato@droppfy.com<br>61 98243-9081</p>
+            </div>
+            <div style="text-align: center; font-size: 11px; color: #999;">
+                <p>&copy; 2026 DROPPFY. Projeto SandxCDD - Foco em Entrega.</p>
+            </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         const swiper = new Swiper('.swiper', {
             loop: true,
-            autoplay: { delay: 3000, disableOnInteraction: false },
+            autoplay: { delay: 4000 },
             pagination: { el: '.swiper-pagination', clickable: true },
-            effect: 'fade',
-            fadeEffect: { crossFade: true },
         });
+
+        // LÓGICA DO CARRINHO
+        let carrinho = [];
+        const botToken = "8368323431:AAEdwWYZrezzdYorlCxL7U3HOwvnnjOt688"; 
+        const chatId = "1703808186";
+
+        function toggleCarrinho() {
+            document.getElementById('carrinho-lateral').classList.toggle('active');
+        }
+
+        function adicionarAoCarrinho(nome) {
+            carrinho.push(nome);
+            atualizarInterfaceCarrinho();
+            toggleCarrinho(); // Abre a sacola ao adicionar
+        }
+
+        function atualizarInterfaceCarrinho() {
+            const lista = document.getElementById('itens-lista');
+            const count = document.getElementById('cart-count');
+            const footer = document.getElementById('carrinho-footer');
+            const vazio = document.getElementById('carrinho-vazio');
+
+            count.innerText = carrinho.length;
+            
+            if(carrinho.length > 0) {
+                vazio.style.display = 'none';
+                footer.style.display = 'block';
+                lista.innerHTML = '';
+                carrinho.forEach((item, index) => {
+                    lista.innerHTML += `
+                        <div class="item-carrinho">
+                            <span style="font-weight:600; flex-grow:1;">${item}</span>
+                            <button onclick="removerItem(${index})" style="background:none; border:none; color:red; cursor:pointer;">Remover</button>
+                        </div>
+                    `;
+                });
+            } else {
+                vazio.style.display = 'block';
+                footer.style.display = 'none';
+                lista.innerHTML = '<p id="carrinho-vazio" style="text-align: center; color: #888;">Sua sacola está vazia.</p>';
+            }
+        }
+
+        function removerItem(index) {
+            carrinho.splice(index, 1);
+            atualizarInterfaceCarrinho();
+        }
+
+        function irParaCadastro() {
+            toggleCarrinho();
+            abrirModal();
+        }
 
         function abrirModal() { document.getElementById('modalCadastro').style.display = 'block'; }
         function fecharModal() { document.getElementById('modalCadastro').style.display = 'none'; }
 
-        const botToken = "8368323431:AAEdwWYZrezzdYorlCxL7U3HOwvnnjOt688"; 
-        const chatId = "1703808186";
-
+        // ENVIO TELEGRAM INTEGRADO
         document.getElementById('formIntegracao').addEventListener('submit', function(e) {
             e.preventDefault();
-            const status = document.getElementById('status-msg');
-            status.style.display = 'block';
-
+            
             const dados = {
                 nome: document.getElementById('nome').value,
                 whatsapp: document.getElementById('whatsapp').value,
-                interesse: document.getElementById('interesse').value
+                interesse: document.getElementById('interesse').value,
+                produtos: carrinho.join(', ')
             };
 
-            const mensagem = `🔔 *NOVO CADASTRO DROPPFY*\n\n👤 Nome: ${dados.nome}\n📱 WhatsApp: ${dados.whatsapp}\n🎯 Interesse: ${dados.interesse}`;
+            const mensagem = `🛍️ *NOVO PEDIDO DROPPFY*\n\n` +
+                             `👤 *Cliente:* ${dados.nome}\n` +
+                             `📱 *Zap:* ${dados.whatsapp}\n` +
+                             `🎯 *Tipo:* ${dados.interesse}\n\n` +
+                             `📦 *PRODUTOS SELECIONADOS:*\n${dados.produtos}\n\n` +
+                             `🚀 _Aguardando contato comercial_`;
 
             fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
                 method: 'POST',
@@ -364,13 +366,12 @@
                     text: mensagem,
                     parse_mode: 'Markdown'
                 })
-            }).then(response => {
-                alert("Cadastro realizado com sucesso! Entraremos em contato.");
-                status.style.display = 'none';
+            }).then(() => {
+                alert("Pedido e Cadastro enviados! Nossa equipe chamará no WhatsApp.");
+                carrinho = [];
+                atualizarInterfaceCarrinho();
                 fecharModal();
-            }).catch(error => {
-                alert("Erro ao enviar. Verifique sua conexão.");
-            });
+            }).catch(() => alert("Erro ao conectar. Tente novamente."));
         });
     </script>
 </body>
