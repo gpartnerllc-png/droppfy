@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRUSTFUEL | Distribuição Profissional</title>
+    <title>DROPPFY | Distribuição Profissional</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
@@ -92,7 +92,7 @@
 <body>
 
     <header>
-        <div class="logo">TRUSTFUEL</div>
+        <div class="logo">DROPPFY</div>
         <button onclick="abrirModal()" class="btn-comprar" style="width: auto; padding: 10px 20px; border-radius: 20px;">SEJA UM REVENDEDOR</button>
     </header>
 
@@ -147,9 +147,8 @@
                 <div class="swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="https://www.trustfuel.com.br/favicon.png" alt="Foto 1"></div>
-                        <div class="swiper-slide"><img src="https://via.placeholder.com/400x400?text=Creatina+2" alt="Foto 2"></div>
-                        <div class="swiper-slide"><img src="https://via.placeholder.com/400x400?text=Creatina+3" alt="Foto 3"></div>
-                        <div class="swiper-slide"><img src="https://via.placeholder.com/400x400?text=Creatina+4" alt="Foto 4"></div>
+                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-powerfuel-creatine-po-300g-1.png+2" alt="Foto 2"></div>
+                        <div class="swiper-slide"><img src="hhttps://www.trustfuel.com.br/upload/produto/imagem/b_sup-powerfuel-creatine-po-300g.jpg+3" alt="Foto 3"></div>                        
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
@@ -175,8 +174,8 @@
         function fecharModal() { document.getElementById('modalCadastro').style.display = 'none'; }
 
         // Integração com Telegram (Banco de Dados em tempo real)
-        const botToken = "SEU_BOT_TOKEN_AQUI"; // Pegue com o @BotFather
-        const chatId = "SEU_CHAT_ID_AQUI";     // Use o @userinfobot para descobrir seu ID
+        const botToken = "8368323431:AAEdwWYZrezzdYorlCxL7U3HOwvnnjOt688"; // Pegue com o @BotFather
+        const chatId = "1703808186";     // Use o @userinfobot para descobrir seu ID
 
         document.getElementById('formIntegracao').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -189,7 +188,7 @@
                 interesse: document.getElementById('interesse').value
             };
 
-            const mensagem = `🔔 *NOVO CADASTRO SANDXCDD*\n\n👤 Nome: ${dados.nome}\n📱 WhatsApp: ${dados.whatsapp}\n🎯 Interesse: ${dados.interesse}`;
+            const mensagem = `🔔 *NOVO CADASTRO*\n\n👤 Nome: ${dados.nome}\n📱 WhatsApp: ${dados.whatsapp}\n🎯 Interesse: ${dados.interesse}`;
 
             fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
                 method: 'POST',
