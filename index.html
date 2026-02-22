@@ -112,7 +112,7 @@
                     <label>Interesse</label>
                     <select id="interesse">
                         <option value="Compra Unica">Compra Única</option>
-                        <option value="Revenda">Quero Revender (Atacado)</option>
+                        <option value="Revenda">Quero Revender em Atacado</option>
                     </select>
                 </div>
                 <button type="submit" class="btn-comprar">FINALIZAR CADASTRO</button>
@@ -137,7 +137,7 @@
                 <div class="produto-info">
                     <h3>Whey Protein Isolado</h3>
                     <p>O melhor para sua performance.</p>
-                    <button class="btn-comprar" onclick="abrirModal()">COMPRAR / CADASTRAR</button>
+                    <button class="btn-comprar" onclick="abrirModal()">COMPRE/CADASTRE-SE</button>
                 </div>
             </div>
 
@@ -159,7 +159,40 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>        
+    <script>
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: { 
+                el: '.swiper-pagination', 
+                clickable: true 
+            },
+        });
+
+        // Suas outras funções de modal e Telegram continuam abaixo...
+        function abrirModal() { document.getElementById('modalCadastro').style.display = 'block'; }
+        function fecharModal() { document.getElementById('modalCadastro').style.display = 'none'; }
+    
+    // Inicializa Carrossel de Imagens com Passagem Automática
+const swiper = new Swiper('.swiper', {
+    loop: true, // Faz as fotos voltarem ao início infinitamente
+    autoplay: {
+        delay: 3000, // Tempo de espera entre as fotos (3000ms = 3 segundos)
+        disableOnInteraction: false, // Continua passando mesmo se o usuário clicar
+    },
+    pagination: { 
+        el: '.swiper-pagination', 
+        clickable: true 
+    },
+    effect: 'fade', // Opcional: efeito de transição suave (fade) em vez de deslize
+    fadeEffect: {
+        crossFade: true
+    },
+});
     <script>
         // Inicializa Carrossel de Imagens (4 fotos)
         const swiper = new Swiper('.swiper', {
