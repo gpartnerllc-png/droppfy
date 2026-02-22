@@ -13,114 +13,171 @@
             --primary: #000;
             --secondary: #2f3d34;
             --cta: #000;
-            --cta-hover: #333;
+            --cta-hover: #1a1a1a;
             --cta_i: #fff;
-            --grayLight: #f4f4f4;
-            --dark: #1a1a1a;
+            --grayLight: #f8f8f8;
+            --dark: #111;
             --light: #fff;
-            --shadow: 0 4px 15px rgba(0,0,0,0.08);
+            --shadow-premium: 0 20px 40px rgba(0,0,0,0.1);
             --body-font: 'Hind', sans-serif;
         }
 
-        body { font-family: var(--body-font); margin: 0; background: #fafafa; color: var(--dark); }
+        body { 
+            font-family: var(--body-font); 
+            margin: 0; 
+            background: #ffffff; 
+            color: var(--dark); 
+            line-height: 1.6;
+        }
 
-        /* Header com Sacola */
+        /* Header Premium */
         header {
-            background: var(--light);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid #eee;
-            padding: 15px 5%;
+            padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
 
-        .logo { font-weight: 700; font-size: 26px; letter-spacing: 3px; }
+        .logo { 
+            font-weight: 700; 
+            font-size: 28px; 
+            letter-spacing: 4px; 
+            text-transform: uppercase;
+        }
         
-        .header-actions { display: flex; align-items: center; gap: 20px; }
+        .header-actions { display: flex; align-items: center; gap: 25px; }
         
         .sacola-btn {
             background: none;
             border: none;
             cursor: pointer;
-            position: relative;
-            display: flex;
-            align-items: center;
+            transition: transform 0.2s;
         }
+        .sacola-btn:hover { transform: scale(1.1); }
 
-        /* Modal */
+        /* Modal Estilizado */
         .modal {
             display: none;
             position: fixed;
             z-index: 2000;
             left: 0; top: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(5px);
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(8px);
         }
 
         .modal-content {
             background: white;
-            margin: 5% auto;
-            padding: 30px;
+            margin: 2% auto;
+            padding: 40px;
             width: 90%;
-            max-width: 450px;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            max-width: 400px;
+            border-radius: 20px;
+            position: relative;
         }
 
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 13px; text-transform: uppercase; }
         .form-group input, .form-group select {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            box-sizing: border-box;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: #f9f9f9;
         }
 
-        /* Grid e Cards */
-        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .grid-produtos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        /* Swiper / Slider "MAIOR E BONITO" */
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
         
-        .card-produto { 
-            border: 1px solid #eee; 
-            border-radius: 12px; 
-            overflow: hidden; 
-            background: #fff; 
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
+        .main-slider-card {
+            background: #fff;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--shadow-premium);
+            border: 1px solid #f0f0f0;
         }
-        .card-produto:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
 
-        .swiper { width: 100%; height: 280px; }
-        .swiper-slide img { width: 100%; height: 100%; object-fit: contain; padding: 10px; box-sizing: border-box; }
+        .swiper { 
+            width: 100%; 
+            height: 500px; /* Aumentado como solicitado */
+            background: #fff;
+        }
+        
+        @media (max-width: 768px) {
+            .swiper { height: 350px; }
+        }
 
-        .produto-info { padding: 20px; text-align: center; flex-grow: 1; }
-        .produto-info h3 { margin: 10px 0; font-size: 17px; height: 40px; overflow: hidden; }
-        .produto-info p { font-size: 13px; color: #666; margin-bottom: 15px; }
+        .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, #ffffff 0%, #f2f2f2 100%);
+        }
+
+        .swiper-slide img { 
+            max-width: 80%; 
+            max-height: 85%; 
+            object-fit: contain;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+        }
+
+        .produto-info { 
+            padding: 40px; 
+            text-align: center; 
+            background: #fff;
+        }
+        
+        .produto-info h3 { 
+            margin: 0 0 10px; 
+            font-size: 24px; 
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .produto-info p { 
+            font-size: 16px; 
+            color: #777; 
+            margin-bottom: 30px; 
+        }
 
         .btn-comprar {
             background: var(--cta);
             color: var(--cta_i);
-            padding: 12px;
-            display: block;
+            padding: 18px 40px;
             text-decoration: none;
             font-weight: 700;
             border: none;
-            width: 100%;
             cursor: pointer;
-            border-radius: 6px;
-            transition: 0.3s;
+            border-radius: 50px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
         }
-        .btn-comprar:hover { background: var(--cta-hover); }
+        .btn-comprar:hover { 
+            background: var(--cta-hover); 
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
 
-        #status-msg { margin-top: 10px; font-size: 14px; color: #27ae60; display: none; text-align: center; }
+        #status-msg { margin-top: 15px; font-weight: 600; color: #27ae60; display: none; }
 
-        footer { background: var(--grayLight); padding: 50px 20px; border-top: 1px solid #ddd; margin-top: 50px; }
+        footer { 
+            background: var(--dark); 
+            color: #fff;
+            padding: 60px 20px; 
+            margin-top: 80px; 
+            text-align: center;
+        }
+        
+        .footer-logo { font-size: 22px; letter-spacing: 5px; margin-bottom: 20px; display: block; }
+        .footer-info { opacity: 0.6; font-size: 13px; }
+
     </style>
 </head>
 <body>
@@ -131,17 +188,19 @@
             <button class="sacola-btn" onclick="abrirModal()">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
             </button>
-            <button onclick="abrirModal()" class="btn-comprar" style="width: auto; padding: 8px 20px; border-radius: 20px; font-size: 12px;">REVENDER</button>
+            <button onclick="abrirModal()" class="btn-comprar" style="padding: 10px 25px; font-size: 11px;">REVENDER</button>
         </div>
     </header>
 
     <div id="modalCadastro" class="modal">
         <div class="modal-content">
-            <h3 style="margin-top:0">Finalizar Cadastro</h3>
+            <h2 style="margin-top:0; font-size: 22px;">Seja um Distribuidor</h2>
+            <p style="color: #666; font-size: 14px; margin-bottom: 25px;">Preencha os dados abaixo para acessar a tabela de atacado.</p>
+            
             <form id="formIntegracao">
                 <div class="form-group">
                     <label>Nome Completo</label>
-                    <input type="text" id="nome" required>
+                    <input type="text" id="nome" placeholder="Seu nome aqui" required>
                 </div>
                 <div class="form-group">
                     <label>WhatsApp</label>
@@ -151,70 +210,70 @@
                     <label>Seu Interesse</label>
                     <select id="interesse">
                         <option value="Revenda">Revender kit 5 (Atacado)</option>
-                        <option value="Compra Unica">Compra Única (Varejo)</option>                        
+                        <option value="Compra Unica">Compra Única (Varejo)</option>
                     </select>
                 </div>
-                <button type="submit" class="btn-comprar">ENVIAR AGORA</button>
-                <p id="status-msg">Enviando para o sistema...</p>
-                <button type="button" onclick="fecharModal()" style="background:none; border:none; color:red; cursor:pointer; margin-top:15px; width:100%">Cancelar</button>
+                <button type="submit" class="btn-comprar" style="width: 100%;">QUERO ME CADASTRAR</button>
+                <p id="status-msg">Processando sua solicitação...</p>
+                <button type="button" onclick="fecharModal()" style="background:none; border:none; color:#999; cursor:pointer; margin-top:20px; width:100%; font-size: 12px; text-transform: uppercase;">Voltar para a loja</button>
             </form>
         </div>
     </div>
 
     <div class="container">
-        <h2 style="text-align: center; margin-bottom: 40px;">Produtos Premium Droppfy</h2>
-        <div class="grid-produtos">
-            
-            <div class="card-produto">
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-muscle-pack-egg-coco-frappe-po-900g-1.png"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-powerfuel-creatine-po-300g-1.png"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_whey-protein-powerfuel-protein-vanilla-900g-282.png"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_whey-protein-powerfuel-protein-coconut-900g-283.png"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_whey-protein-powerfuel-protein-chocolate-900g-284.png"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-powerfuel-glutamine-po-300g.png"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_gm-goalmy-flexfuel-orange-c-30.png"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_gm-goalmy-hair-skin-nails-strawberry-c-6.png"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-brainfuel-sports-cap-c-60.jpg"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-brainfuel-acai-banana-po-c-450g.jpg"></div>
-                        <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_warm-up-indian-spices-acelerador-metabolico-natural-110g-142.png"></div>
-                    </div>
-                    <div class="swiper-pagination"></div>
+        <div class="main-slider-card">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-muscle-pack-egg-coco-frappe-po-900g-1.png" alt="Produto"></div>
+                    <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-powerfuel-creatine-po-300g-1.png" alt="Produto"></div>
+                    <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_whey-protein-powerfuel-protein-vanilla-900g-282.png" alt="Produto"></div>
+                    <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_whey-protein-powerfuel-protein-coconut-900g-283.png" alt="Produto"></div>
+                    <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_whey-protein-powerfuel-protein-chocolate-900g-284.png" alt="Produto"></div>
+                    <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-powerfuel-glutamine-po-300g.png" alt="Produto"></div>
+                    <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_gm-goalmy-flexfuel-orange-c-30.png" alt="Produto"></div>
+                    <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_gm-goalmy-hair-skin-nails-strawberry-c-6.png" alt="Produto"></div>
+                    <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-brainfuel-sports-cap-c-60.jpg" alt="Produto"></div>
+                    <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-brainfuel-acai-banana-po-c-450g.jpg" alt="Produto"></div>
+                    <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_warm-up-indian-spices-acelerador-metabolico-natural-110g-142.png" alt="Produto"></div>
                 </div>
-                <div class="produto-info">
-                    <h3>Creatina, Wheys, Gomas, etc...</h3>
-                    <p>Força máxima garantida.</p>
-                    <button class="btn-comprar" onclick="abrirModal()">CADASTRE-SE</button>
-                </div>
+                <div class="swiper-pagination"></div>
             </div>
-
-    <footer>
-        <div class="container" style="text-align: center;">
-            <p><strong>DROPPFY</strong> - Projeto X-CDB</p>
-            <p>VITAMEDIC INDUSTRIA FARMACEUTICA - CNPJ: 30.222.814/0001-31</p>
-            <p>&copy; Todos os direitos reservados.</p>
-            <div>
-                <h4 style="text-transform: uppercase; letter-spacing: 1px;">Segurança</h4>
-                <img src="https://images.yampi.me/assets/stores/droppfy/uploads/icon/65f3d8c635540.png" width="40" alt="Selo Segurança">
-                <p style="font-size: 12px;">Ambiente 100% Seguro</p>
+            
+            <div class="produto-info">
+                <h3>Linha Premium Completa</h3>
+                <p>Creatinas, Wheys, Gomas e Suplementos de Alta Performance.</p>
+                <button class="btn-comprar" onclick="abrirModal()">FAZER MEU CADASTRO AGORA</button>
             </div>
         </div>
+    </div>
+
+    <footer>
+        <span class="footer-logo">DROPPFY</span>
+        <div class="footer-info">
+            <p>Projeto X-CDB</p>
+            <p>VITAMEDIC INDUSTRIA FARMACEUTICA - CNPJ: 30.222.814/0001-31</p>
+            <div style="margin-top: 30px;">
+                <img src="https://images.yampi.me/assets/stores/droppfy/uploads/icon/65f3d8c635540.png" width="30" alt="Selo" style="filter: grayscale(1) brightness(2);">
+                <p style="font-size: 11px; margin-top: 10px;">AMBIENTE 100% SEGURO E CRIPTOGRAFADO</p>
+            </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>    
     <script>
+        // Inicialização do Swiper com efeito de Fade para ficar mais "Top"
         const swiper = new Swiper('.swiper', {
             loop: true,
-            autoplay: { delay: 3000 },
+            effect: 'fade',
+            fadeEffect: { crossFade: true },
+            autoplay: { delay: 2500, disableOnInteraction: false },
             pagination: { el: '.swiper-pagination', clickable: true },
         });
 
         function abrirModal() { document.getElementById('modalCadastro').style.display = 'block'; }
         function fecharModal() { document.getElementById('modalCadastro').style.display = 'none'; }
 
-        // INFRAESTRUTURA TELEGRAM
+        // CONFIGURAÇÃO TELEGRAM (Mantida exatamente como a sua)
         const botToken = "8368323431:AAEdwWYZrezzdYorlCxL7U3HOwvnnjOt688"; 
         const chatId = "1703808186";
 
@@ -240,11 +299,12 @@
                     parse_mode: 'Markdown'
                 })
             }).then(() => {
-                alert("Sucesso! Entraremos em contato.");
+                alert("Sucesso! Entraremos em contato em breve.");
                 status.style.display = 'none';
                 fecharModal();
             }).catch(() => {
-                alert("Erro ao enviar.");
+                alert("Ocorreu um erro. Tente novamente.");
+                status.style.display = 'none';
             });
         });
     </script>     
