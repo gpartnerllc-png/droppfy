@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>   
+<head>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <title>DROPPFY | Distribuição Profissional</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel='icon' type='image/png' href='https://images.yampi.me/assets/stores/droppfy/uploads/icon/65f3d8c635540.png'>
-<link rel='apple-touch-icon' href='https://images.yampi.me/assets/stores/droppfy/uploads/icon/65f3d8c635540.png'>
-<link rel='icon' sizes='192x192' href='https://images.yampi.me/assets/stores/droppfy/uploads/icon/65f3d8c635540.png'>
-    
+    <link rel='apple-touch-icon' href='https://images.yampi.me/assets/stores/droppfy/uploads/icon/65f3d8c635540.png'>
+    <link rel='icon' sizes='192x192' href='https://images.yampi.me/assets/stores/droppfy/uploads/icon/65f3d8c635540.png'>
     
     <style>
         :root {
@@ -22,9 +21,7 @@
             --light: #fff;
             --body-font: 'Hind', sans-serif;
         }
-
         body { font-family: var(--body-font); margin: 0; background: var(--light); color: var(--dark); }
-        
         header {
             background: var(--light);
             border-bottom: 1px solid var(--grayLight);
@@ -36,9 +33,7 @@
             top: 0;
             z-index: 1000;
         }
-
         .logo { font-weight: 700; font-size: 24px; letter-spacing: 2px; }
-        
         .modal {
             display: none;
             position: fixed;
@@ -46,7 +41,6 @@
             left: 0; top: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.8);
         }
-
         .modal-content {
             background: white;
             margin: 5% auto;
@@ -55,7 +49,6 @@
             max-width: 500px;
             border-radius: 8px;
         }
-
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
         .form-group input, .form-group select {
@@ -64,14 +57,11 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
-
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
         .grid-produtos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        
-        .card-produto { border: 1px solid var(--grayLight); border-radius: 8px; overflow: hidden; background: #fff; }
+        .card-produto { border: 1px solid var(--grayLight); border-radius: 8px; overflow: hidden; background: #fff; height: fit-content; }
         .swiper { width: 100%; height: 300px; }
         .swiper-slide img { width: 100%; height: 100%; object-fit: contain; }
-
         .produto-info { padding: 20px; text-align: center; }
         .btn-comprar {
             background: var(--cta);
@@ -85,7 +75,6 @@
             cursor: pointer;
             transition: 0.3s;
         }
-
         #status-msg { margin-top: 10px; font-size: 14px; color: green; display: none; }
     </style>
 </head>
@@ -152,14 +141,11 @@
                 <div class="produto-info">
                     <h3>Creatina Monohidratada</h3>
                     <p>Força máxima garantida.</p>
-                    <button class="btn-comprar" onclick="abrirModal()">COMPRAR / CADASTRAR</button>
+                    <button class="btn-comprar" onclick="abrirModal()">COMPRE/CADASTRE-SE</button>
                 </div>
             </div>
 
-        </div>
-    </div>
-    
-    <div class="card-produto">
+            <div class="card-produto">
                 <div class="swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_whey-protein-powerfuel-protein-vanilla-900g-282.png" alt="Foto 1"></div>
@@ -175,10 +161,7 @@
                 </div>
             </div>
 
-        </div>
-    </div>
-
-                <div class="card-produto">
+            <div class="card-produto">
                 <div class="swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_whey-protein-powerfuel-protein-coconut-900g-283.png" alt="Foto 1"></div>
@@ -192,12 +175,9 @@
                     <p>A energia tropical que hidrata seu corpo, reconstrói músculos ao máximo.</p>
                     <button class="btn-comprar" onclick="abrirModal()">COMPRE/CADASTRE-SE</button>
                 </div>
-                </div>
+            </div>
 
-        </div>
-    </div>
-
-     <div class="card-produto">
+            <div class="card-produto">
                 <div class="swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_whey-protein-powerfuel-protein-chocolate-900g-284.png" alt="Foto 1"></div>
@@ -211,12 +191,9 @@
                     <p>Onde o frescor da natureza te encontra.</p>
                     <button class="btn-comprar" onclick="abrirModal()">COMPRE/CADASTRE-SE</button>
                 </div>
-                </div>
+            </div>
 
-        </div>
-    </div>
-
-     <div class="card-produto">
+            <div class="card-produto">
                 <div class="swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_sup-powerfuel-glutamine-po-300g.png" alt="Foto 1"></div>
@@ -229,34 +206,54 @@
                     <p>A barreira invencível que protege a sua imunidade.</p>
                     <button class="btn-comprar" onclick="abrirModal()">COMPRE/CADASTRE-SE</button>
                 </div>
-                </div>
+            </div>
 
+        </div> </div> <footer style="background-color: var(--grayLight); padding: 40px 20px; margin-top: 50px; border-top: 1px solid #ddd;">
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: left; margin: 0 auto;">
+            <div>
+                <h4 style="text-transform: uppercase; letter-spacing: 1px;">Atendimento</h4>
+                <p style="font-size: 14px; line-height: 1.6;">
+                    De segunda a sexta, das 9h às 22h.<br>
+                    <strong>E-mail:</strong> <a href="mailto:contato@droppfy.com" style="color: var(--dark); text-decoration: none;">contato@droppfy.com</a><br>
+                    <strong>Whatsapp:</strong> <a href="https://wa.me/5561982439081" target="_blank" style="color: var(--dark); text-decoration: none;">61 98243-9081</a>
+                </p>
+            </div>
+            <div>
+                <h4 style="text-transform: uppercase; letter-spacing: 1px;">Institucional</h4>
+                <p style="font-size: 14px; line-height: 1.6;">
+                    <a href="#" style="color: var(--dark); text-decoration: none;">Sobre a Droppfy</a><br>
+                    <a href="#" style="color: var(--dark); text-decoration: none;">Políticas de Privacidade</a><br>
+                    <a href="#" style="color: var(--dark); text-decoration: none;">Termos de Uso</a>
+                </p>
+            </div>
+            <div>
+                <h4 style="text-transform: uppercase; letter-spacing: 1px;">Segurança</h4>
+                <img src="https://images.yampi.me/assets/stores/droppfy/uploads/icon/65f3d8c635540.png" width="40" alt="Selo Segurança">
+                <p style="font-size: 12px;">Ambiente 100% Seguro</p>
+            </div>
         </div>
-    </div>
+        <div style="max-width: 1200px; margin: 40px auto 0; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; font-size: 11px; color: #666;">
+            <p>
+                VITAMEDIC INDUSTRIA FARMACEUTICA - CNPJ: 30.222.814/0001-31<br>
+                R. VPR 0 1 DT AGROINDUSTRIAL DE ANAPOLIS, ANÁPOLIS - GO, 75132-020
+            </p>
+            <p>&copy; 2026 <strong>DROPPFY</strong>. Todos os direitos reservados. Projeto X-CDB.</p>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>    
     <script>
-        // Inicializa o Swiper apenas UMA VEZ com todas as configurações
         const swiper = new Swiper('.swiper', {
             loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            pagination: { 
-                el: '.swiper-pagination', 
-                clickable: true 
-            },
+            autoplay: { delay: 3000, disableOnInteraction: false },
+            pagination: { el: '.swiper-pagination', clickable: true },
             effect: 'fade',
-            fadeEffect: {
-                crossFade: true
-            },
+            fadeEffect: { crossFade: true },
         });
 
         function abrirModal() { document.getElementById('modalCadastro').style.display = 'block'; }
         function fecharModal() { document.getElementById('modalCadastro').style.display = 'none'; }
 
-        // Integração com Telegram
         const botToken = "8368323431:AAEdwWYZrezzdYorlCxL7U3HOwvnnjOt688"; 
         const chatId = "1703808186";
 
@@ -290,43 +287,5 @@
             });
         });
     </script>
-
-    <footer style="background-color: var(--grayLight); padding: 40px 20px; margin-top: 50px; border-top: 1px solid #ddd;">
-        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: left;">
-            
-            <div>
-                <h4 style="text-transform: uppercase; letter-spacing: 1px;">Atendimento</h4>
-                <p style="font-size: 14px; line-height: 1.6;">
-                    De segunda a sexta, das 9h às 22h.<br>
-                    <strong>E-mail:</strong> <a href="mailto:contato@droppfy.com" style="color: var(--dark); text-decoration: none;">contato@droppfy.com</a><br>
-                    <strong>Whatsapp:</strong> <a href="https://wa.me/5561982439081" target="_blank" style="color: var(--dark); text-decoration: none;">61 98243-9081</a>
-                </p>
-            </div>
-
-            <div>
-                <h4 style="text-transform: uppercase; letter-spacing: 1px;">Institucional</h4>
-                <p style="font-size: 14px; line-height: 1.6;">
-                    <a href="#" style="color: var(--dark); text-decoration: none;">Sobre a Droppfy</a><br>
-                    <a href="#" style="color: var(--dark); text-decoration: none;">Políticas de Privacidade</a><br>
-                    <a href="#" style="color: var(--dark); text-decoration: none;">Termos de Uso</a>
-                </p>
-            </div>
-
-            <div>
-                <h4 style="text-transform: uppercase; letter-spacing: 1px;">Segurança</h4>
-                <img src="https://images.yampi.me/assets/stores/droppfy/uploads/icon/65f3d8c635540.png" width="40" alt="Selo Segurança">
-                <p style="font-size: 12px;">Ambiente 100% Seguro</p>
-            </div>
-        </div>
-
-        <div style="max-width: 1200px; margin: 40px auto 0; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; font-size: 11px; color: #666;">
-            <p>
-                VITAMEDIC INDUSTRIA FARMACEUTICA - CNPJ: 30.222.814/0001-31<br>
-                R. VPR 0 1 DT AGROINDUSTRIAL DE ANAPOLIS, ANÁPOLIS - GO, 75132-020
-            </p>
-            <p>&copy; 2026 <strong>DROPPFY</strong>. Todos os direitos reservados. Projeto X-CDB.</p>
-        </div>
-    </footer>
-    
 </body>
 </html>
