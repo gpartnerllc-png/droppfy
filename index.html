@@ -332,9 +332,15 @@
 
     <footer>
         <div class="container" style="text-align: center;">
-            <p><strong>DROPPFY</strong> - Projeto SandxCDD</p>
+            <p><strong>DROPPFY</strong> - Projeto X-CDB</p>
             <p>VITAMEDIC INDUSTRIA FARMACEUTICA - CNPJ: 30.222.814/0001-31</p>
             <p>&copy; 2026 Todos os direitos reservados.</p>
+            <div>
+                <h4 style="text-transform: uppercase; letter-spacing: 1px;">Segurança</h4>
+                <img src="https://images.yampi.me/assets/stores/droppfy/uploads/icon/65f3d8c635540.png" width="40" alt="Selo Segurança">
+                <p style="font-size: 12px;">Ambiente 100% Seguro</p>
+            </div>
+        </div>
         </div>
     </footer>
 
@@ -361,7 +367,8 @@
             const dados = {
                 nome: document.getElementById('nome').value,
                 whatsapp: document.getElementById('whatsapp').value,
-                interesse: document.getElementById('interesse').value
+                interesse: document.getElementById('interesse').value,
+                produto: document.getElementById('produto').value
             };
 
             const mensagem = `🔔 *NOVO CADASTRO DROPPFY*\n\n👤 Nome: ${dados.nome}\n📱 WhatsApp: ${dados.whatsapp}\n🎯 Interesse: ${dados.interesse}`;
@@ -382,40 +389,6 @@
                 alert("Erro ao enviar.");
             });
         });
-    </script>
-
-
-    <footer style="background-color: var(--grayLight); padding: 40px 20px; margin-top: 50px; border-top: 1px solid #ddd;">
-        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: left; margin: 0 auto;">
-            <div>
-                <h4 style="text-transform: uppercase; letter-spacing: 1px;">Atendimento</h4>
-                <p style="font-size: 14px; line-height: 1.6;">
-                    De segunda a sexta, das 9h às 22h.<br>
-                    <strong>E-mail:</strong> <a href="mailto:contato@droppfy.com" style="color: var(--dark); text-decoration: none;">contato@droppfy.com</a><br>
-                    <strong>Whatsapp:</strong> <a href="https://wa.me/5561982439081" target="_blank" style="color: var(--dark); text-decoration: none;">61 98243-9081</a>
-                </p>
-            </div>
-            <div>
-                <h4 style="text-transform: uppercase; letter-spacing: 1px;">Institucional</h4>
-                <p style="font-size: 14px; line-height: 1.6;">
-                    <a href="#" style="color: var(--dark); text-decoration: none;">Sobre a Droppfy</a><br>
-                    <a href="#" style="color: var(--dark); text-decoration: none;">Políticas de Privacidade</a><br>
-                    <a href="#" style="color: var(--dark); text-decoration: none;">Termos de Uso</a>
-                </p>
-            </div>
-            <div>
-                <h4 style="text-transform: uppercase; letter-spacing: 1px;">Segurança</h4>
-                <img src="https://images.yampi.me/assets/stores/droppfy/uploads/icon/65f3d8c635540.png" width="40" alt="Selo Segurança">
-                <p style="font-size: 12px;">Ambiente 100% Seguro</p>
-            </div>
-        </div>
-        <div style="max-width: 1200px; margin: 40px auto 0; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; font-size: 11px; color: #666;">
-            <p>
-                VITAMEDIC INDUSTRIA FARMACEUTICA - CNPJ: 30.222.814/0001-31<br>
-                R. VPR 0 1 DT AGROINDUSTRIAL DE ANAPOLIS, ANÁPOLIS - GO, 75132-020
-            </p>
-            <p>&copy; 2026 <strong>DROPPFY</strong>. Todos os direitos reservados. Projeto X-CDB.</p>
-        </div>
-    </footer>        
+    </script>     
 </body>
 </html>
