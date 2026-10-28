@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DROPPFY — O Poder da Distribuição | Centro de Distribuição no Brasil</title>
+  <meta name="description" content="DROPPFY X-CDB — Centro de Distribuição no Brasil. Suplementos premium, kits de atacado (8 e 12+ peças), frete grátis via Correios, rastreio completo e revenda com autoridade.">
+  <meta property="og:title" content="DROPPFY — O Poder da Distribuição">
+  <meta property="og:description" content="Kits de unidade, 8 peças e 12+ peças com frete grátis. Revenda autorizada com atendimento VIP.">
+  <link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <canvas id="fx-canvas" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a class="logo" href="#top" aria-label="DROPPFY">
+        <img src="/assets/img/logo.svg" alt="DROPPFY" width="42" height="42">
+        <span class="logo-text">DROPPFY<em>DISTRIBUIÇÃO</em></span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#kits">Kits</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#parceiros">Parceiros</a>
+        <a href="#revenda">Seja Revenda</a>
+        <a href="#rastreio">Rastreio</a>
+      </nav>
+      <div class="header-actions">
+        <div class="search-wrap" id="searchWrap">
+          <input type="search" id="searchInput" placeholder="Buscar produto..." autocomplete="off">
+          <button id="searchBtn" aria-label="Buscar" title="Buscar">⌕</button>
+          <div class="search-results" id="searchResults" hidden></div>
+        </div>
+        <button class="icon-btn" id="btnConta" title="Minha conta">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg>
+        </button>
+        <button class="icon-btn cart-btn" id="btnCart" title="Meus pedidos">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count" id="cartCount" hidden>0</span>
+        </button>
+        <button class="btn btn-gold btn-sm" id="btnRevendaTop">SEJA REVENDA</button>
+      </div>
+      <button class="menu-burger" id="menuBurger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="hero-chip reveal">🇧🇷 CENTRO DE DISTRIBUIÇÃO NO BRASIL</div>
+          <h1 class="reveal d1">O PODER DA<br><span class="grad">DISTRIBUIÇÃO</span></h1>
+          <p class="hero-sub reveal d2">Kits de <strong>1 unidade</strong>, <strong>8 peças</strong> e <strong>12+ peças</strong> com preço de atacado, frete grátis via Correios e rastreio completo. Autoridade, autonomia e atendimento de elite.</p>
+          <div class="hero-cta reveal d3">
+            <a class="btn btn-gold btn-lg" href="#kits">EXPLORAR KITS</a>
+            <a class="btn btn-ghost btn-lg" href="#revenda">TORNAR-SE REVENDA</a>
+          </div>
+          <div class="hero-stats reveal d4">
+            <div class="stat"><b data-count="184">0</b><span>produtos no catálogo</span></div>
+            <div class="stat"><b data-count="27">0</b><span>estados atendidos</span></div>
+            <div class="stat"><b data-count="100">0</b><span>% frete grátis</span></div>
+            <div class="stat"><b>24h</b><span>despacho expresso</span></div>
+          </div>
+        </div>
+        <div class="hero-stage reveal d2" id="heroStage">
+          <div class="orbit orbit-1"><img src="https://www.trustfuel.com.br/upload/produto/imagem/b_whey-protein-powerfuel-protein-chocolate-900g-284.png" alt="" loading="lazy"></div>
+          <div class="orbit orbit-2"><img src="https://assets.infinitepay.io/unsafe/3840x0/filters:quality(75)/https%3A%2F%2Finfinitepay-sales.services.production.infinitepay.io%2Fv1%2Fproducts%2Fvariation%2Fmedia_proxy%2F35ff55a7-0dcd-4046-82fb-15e915a264a9%3Fv%3D20251202184335%26q%3Dthumbnail" alt="" loading="lazy"></div>
+          <div class="orbit orbit-3"><img src="https://assets.infinitepay.io/unsafe/3840x0/filters:quality(75)/https%3A%2F%2Finfinitepay-sales.services.production.infinitepay.io%2Fv1%2Fproducts%2Fvariation%2Fmedia_proxy%2Ff157626a-4903-449e-a8a9-cf2f8834d4f5%3Fv%3D20250826141446%26q%3Dthumbnail" alt="" loading="lazy"></div>
+          <div class="hero-core tilt" data-tilt>
+            <img src="https://assets.infinitepay.io/unsafe/3840x0/filters:quality(75)/https%3A%2F%2Finfinitepay-sales.services.production.infinitepay.io%2Fv1%2Fproducts%2Fvariation%2Fmedia_proxy%2Fb16d535c-57df-4780-a2c3-2c56e152c2aa%3Fv%3D20251202183205%26q%3Dthumbnail" alt="Kit Jardim das 22 Emoções">
+            <div class="hero-badge">KIT 12+ PEÇAS<br><small>frete grátis</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true"></div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>TRUSTFUEL</span><i>◆</i><span>BREADY</span><i>◆</i><span>NATURA ROYAL</span><i>◆</i><span>BIOATIVOS</span><i>◆</i><span>MALTTINHA</span><i>◆</i><span>MELFORT</span><i>◆</i><span>QVITA NUTRITION</span><i>◆</i><span>GOALMY</span><i>◆</i>
+        <span>TRUSTFUEL</span><i>◆</i><span>BREADY</span><i>◆</i><span>NATURA ROYAL</span><i>◆</i><span>BIOATIVOS</span><i>◆</i><span>MALTTINHA</span><i>◆</i><span>MELFORT</span><i>◆</i><span>QVITA NUTRITION</span><i>◆</i><span>GOALMY</span><i>◆</i>
+      </div>
+    </div>
+
+    <!-- ============ DIFERENCIAIS ============ -->
+    <section class="section" id="diferenciais">
+      <div class="section-head reveal">
+        <span class="kicker">POR QUE A DROPPFY</span>
+        <h2>Autoridade construída<br>com <span class="grad">poder e elegância</span></h2>
+      </div>
+      <div class="benefits-grid">
+        <article class="benefit tilt reveal" data-tilt>
+          <div class="benefit-ico">🏛️</div>
+          <h3>Autoridade</h3>
+          <p>Distribuição oficial de marcas líderes com CNPJ ativo, catálogo registrado e estrutura logística própria em Brasília.</p>
+        </article>
+        <article class="benefit tilt reveal" data-tilt>
+          <div class="benefit-ico">⚡</div>
+          <h3>Autonomia</h3>
+          <p>Você compra direto: kit de 1 unidade, kit de 8 peças ou atacado 12+. Sem burocracia, sem atravessador.</p>
+        </article>
+        <article class="benefit tilt reveal" data-tilt>
+          <div class="benefit-ico">🤝</div>
+          <h3>Atendimento de Elite</h3>
+          <p>Suporte humano via WhatsApp, acompanhamento do pedido em tempo real e promoções exclusivas para cadastrados.</p>
+        </article>
+        <article class="benefit tilt reveal" data-tilt>
+          <div class="benefit-ico">🚚</div>
+          <h3>Frete Grátis + Rastreio</h3>
+          <p>Envio 100% grátis pelos Correios para todo o Brasil com código de rastreio na sua conta.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ KITS ============ -->
+    <section class="section section-dark" id="kits">
+      <div class="section-head reveal">
+        <span class="kicker">COMPRE DIRETO</span>
+        <h2>Kits com <span class="grad">preço de distribuição</span></h2>
+        <p class="section-sub">Unidade · Kit 8 peças · Kit 12+ peças — todos com frete grátis</p>
+      </div>
+      <div class="swiper kits-swiper reveal">
+        <div class="swiper-wrapper" id="kitsWrapper"></div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </section>
+
+    <!-- ============ CATALOGO ============ -->
+    <section class="section" id="catalogo">
+      <div class="section-head reveal">
+        <span class="kicker">CATÁLOGO COMPLETO</span>
+        <h2>Tudo o que está <span class="grad">disponível para compra</span></h2>
+      </div>
+      <div class="filter-bar reveal">
+        <div class="filter-chips" id="filterChips"></div>
+        <input type="search" id="catalogSearch" placeholder="Buscar por nome no catálogo..." class="catalog-search">
+      </div>
+      <div id="catalogSections"></div>
+    </section>
+
+    <!-- ============ PARCEIROS ============ -->
+    <section class="section section-dark" id="parceiros">
+      <div class="section-head reveal">
+        <span class="kicker">VITRINE DE PARCEIROS</span>
+        <h2>Ofertas <span class="grad">exclusivas</span> dos nossos parceiros</h2>
+        <p class="section-sub">Clique e acesse a página oficial de vendas de cada parceiro</p>
+      </div>
+      <div class="swiper partners-swiper reveal">
+        <div class="swiper-wrapper" id="partnersWrapper"></div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </section>
+
+    <!-- ============ REVENDA ============ -->
+    <section class="section" id="revenda">
+      <div class="revenda-grid">
+        <div class="revenda-copy reveal">
+          <span class="kicker">SEJA UM DISTRIBUIDOR</span>
+          <h2>Quer revender com<br><span class="grad">poder de compra?</span></h2>
+          <ul class="revenda-list">
+            <li>Acesso à tabela de atacado (kit 8 e 12+ peças)</li>
+            <li>Promoções exclusivas enviadas no seu WhatsApp</li>
+            <li>Despacho em até 24h com frete grátis</li>
+            <li>Acompanhamento completo pelo painel da sua conta</li>
+          </ul>
+        </div>
+        <form class="glass-card revenda-form reveal" id="leadForm">
+          <h3>Cadastro de Revenda</h3>
+          <p>Preencha e receba a tabela de atacado no seu WhatsApp.</p>
+          <label>Nome completo<input type="text" name="name" placeholder="Seu nome" required></label>
+          <label>WhatsApp<input type="tel" name="whatsapp" placeholder="(00) 00000-0000" required></label>
+          <label>Produto de interesse<input type="text" name="product" placeholder="Ex.: Powerfuel Protein 450g"></label>
+          <label>Interesse
+            <select name="interest">
+              <option value="Revenda kit 12+ (Atacado)">Revenda kit 12+ (Atacado)</option>
+              <option value="Revenda kit 8 peças">Revenda kit 8 peças</option>
+              <option value="Compra única kit 1 unidade">Compra única kit 1 unidade</option>
+            </select>
+          </label>
+          <button type="submit" class="btn btn-gold btn-lg btn-block">QUERO ME CADASTRAR</button>
+          <small class="form-note">Seus dados são protegidos e usados apenas para contato comercial.</small>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ RASTREIO ============ -->
+    <section class="section section-dark" id="rastreio">
+      <div class="section-head reveal">
+        <span class="kicker">ENVIOS PELOS CORREIOS</span>
+        <h2>Frete grátis com <span class="grad">rastreio em tempo real</span></h2>
+      </div>
+      <div class="track-grid">
+        <div class="glass-card reveal">
+          <h3>Calcular prazo de entrega</h3>
+          <p>Digite seu CEP e veja a estimativa dos Correios (envio gratuito).</p>
+          <form id="cepForm" class="inline-form">
+            <input type="text" id="cepInput" placeholder="70000-000" maxlength="9" required>
+            <button type="submit" class="btn btn-gold">CALCULAR</button>
+          </form>
+          <div id="cepResult" class="cep-result" hidden></div>
+        </div>
+        <div class="glass-card reveal">
+          <h3>Rastrear meu pedido</h3>
+          <p>Digite o código de rastreio recebido após o despacho.</p>
+          <form id="trackForm" class="inline-form">
+            <input type="text" id="trackInput" placeholder="Ex.: AA123456789BR" required>
+            <button type="submit" class="btn btn-gold">RASTREAR</button>
+          </form>
+          <div id="trackResult" class="track-result" hidden></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INDIQUE E GANHE ============ -->
+    <section class="section" id="indique">
+      <div class="indique-banner glass-card reveal">
+        <div class="indique-copy">
+          <span class="kicker">INDIQUE E GANHE</span>
+          <h2>Indique um amigo e <span class="grad">ganhe recompensas</span></h2>
+          <p>Compartilhe a DROPPFY com quem você conhece e desbloqueie vantagens exclusivas no nosso programa de indicação.</p>
+        </div>
+        <a class="btn btn-gold btn-lg" href="https://indiquei.app/NZAKBZK" target="_blank" rel="noopener">QUERO INDICAR ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">DROPPFY<span>DISTRIBUIÇÃO</span></div>
+        <p class="footer-about">Projeto X-CDB — Centro de Distribuição no Brasil. O poder da distribuição ao seu alcance.</p>
+        <p class="footer-cnpj">CNPJ: 47.149.826/0001-80</p>
+      </div>
+      <div>
+        <h4>Institucional</h4>
+        <a href="#kits">Kits</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#parceiros">Parceiros</a>
+        <a href="#revenda">Seja Revenda</a>
+        <a href="https://indiquei.app/NZAKBZK" target="_blank" rel="noopener">Indique e Ganhe</a>
+      </div>
+      <div>
+        <h4>Atendimento</h4>
+        <a href="https://wa.me/5561983446343" target="_blank" rel="noopener">WhatsApp (61) 98344-6343</a>
+        <a href="mailto:contato@droppfy.com">contato@droppfy.com</a>
+        <a href="https://rastreamento.correios.com.br/app/index.php" target="_blank" rel="noopener">Rastreio Correios</a>
+      </div>
+      <div>
+        <h4>Redes</h4>
+        <a href="https://www.instagram.com/droppfy_brusch/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/droppfy" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.youtube.com/channel/UCHVMXitYzfVQDtNZi2Li58Q" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.tiktok.com/@cristian_florencio" target="_blank" rel="noopener">TikTok</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>AMBIENTE 100% SEGURO E CRIPTOGRAFADO</span>
+      <div class="pay-icons">
+        <span class="pay-pill">PIX</span><span class="pay-pill">VISA</span><span class="pay-pill">MASTERCARD</span><span class="pay-pill">ELO</span><span class="pay-pill">BOLETO</span>
+      </div>
+      <span>© 2026 DROPPFY — Todos os direitos reservados.</span>
+    </div>
+  </footer>
+
+  <!-- ============ MODAIS ============ -->
+  <div class="modal" id="productModal" hidden>
+    <div class="modal-backdrop" data-close="productModal"></div>
+    <div class="modal-box product-box">
+      <button class="modal-x" data-close="productModal">✕</button>
+      <div class="product-modal-grid">
+        <div class="pm-image"><img id="pmImg" src="" alt=""></div>
+        <div class="pm-info">
+          <div class="pm-brand" id="pmBrand"></div>
+          <h2 id="pmName"></h2>
+          <p id="pmDesc"></p>
+          <div class="pm-options" id="pmOptions"></div>
+          <div class="pm-qty-row" id="pmQtyRow" hidden>
+            <label>Quantidade</label>
+            <div class="qty-ctrl"><button id="qtyMinus">−</button><input type="number" id="qtyInput" value="1" min="1" max="999"><button id="qtyPlus">+</button></div>
+          </div>
+          <div class="pm-price" id="pmPrice"></div>
+          <div class="pm-free" id="pmFree">🚚 Frete grátis para todo o Brasil · Correios</div>
+          <button class="btn btn-gold btn-lg btn-block" id="pmBuy">COMPRAR AGORA</button>
+          <a class="btn btn-ghost btn-lg btn-block" id="pmPartner" hidden target="_blank" rel="noopener">VER OFERTA NO SITE OFICIAL ↗</a>
+          <button class="btn btn-ghost btn-lg btn-block" id="pmConsult" hidden>SOLICITAR TABELA DE ATACADO</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="authModal" hidden>
+    <div class="modal-backdrop" data-close="authModal"></div>
+    <div class="modal-box auth-box">
+      <button class="modal-x" data-close="authModal">✕</button>
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">ENTRAR</button>
+        <button class="auth-tab" data-tab="register">CRIAR CONTA</button>
+      </div>
+      <form id="loginForm" class="auth-form">
+        <label>E-mail ou WhatsApp<input type="text" name="login" placeholder="voce@email.com ou (00) 00000-0000" required></label>
+        <label>Senha<input type="password" name="password" placeholder="••••••••" required></label>
+        <button type="submit" class="btn btn-gold btn-lg btn-block">ENTRAR</button>
+        <p class="auth-err" id="loginErr"></p>
+      </form>
+      <form id="registerForm" class="auth-form" hidden>
+        <label>Nome completo<input type="text" name="name" placeholder="Seu nome" required></label>
+        <label>WhatsApp<input type="tel" name="whatsapp" placeholder="(00) 00000-0000" required></label>
+        <label>E-mail (opcional)<input type="email" name="email" placeholder="voce@email.com"></label>
+        <label>Senha (mín. 6)<input type="password" name="password" minlength="6" placeholder="••••••••" required></label>
+        <label>Interesse
+          <select name="interest">
+            <option value="Revenda">Revenda (Atacado)</option>
+            <option value="Compra única">Compra única (Varejo)</option>
+          </select>
+        </label>
+        <button type="submit" class="btn btn-gold btn-lg btn-block">CRIAR MINHA CONTA</button>
+        <p class="auth-err" id="registerErr"></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="drawer" id="cartDrawer" hidden>
+    <div class="drawer-backdrop" data-close-drawer></div>
+    <aside class="drawer-panel">
+      <div class="drawer-head">
+        <h3 id="drawerTitle">Meus Pedidos</h3>
+        <button class="modal-x" data-close-drawer>✕</button>
+      </div>
+      <div class="drawer-body" id="drawerBody"></div>
+    </aside>
+  </div>
+
+  <div class="toast-wrap" id="toastWrap"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="module" src="/assets/js/site.js"></script>
+</body>
+</html>
