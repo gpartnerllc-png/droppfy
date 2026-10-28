@@ -259,9 +259,10 @@ function initSearch() {
     if (!e.target.closest('#searchWrap')) results.hidden = true;
   });
   function doSearch(q) {
-    const ql = (q || '').trim().toLowerCase();
+    const norm = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^\p{L}\p{N}]+/gu, '');
+    const ql = norm(q);
     if (!ql) { results.hidden = true; return; }
-    const hits = allProducts.filter((p) => `${p.name} ${p.brand} ${p.category}`.toLowerCase().includes(ql)).slice(0, 8);
+    const hits = allProducts.filter((p) => norm(`${p.name} ${p.brand} ${p.category}`).includes(ql)).slice(0, 8);
     results.innerHTML = hits.length
       ? hits.map((p) => `
         <div class="search-hit" data-id="${esc(p.id)}">
