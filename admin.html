@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>DROPPFY — Painel do Distribuidor</title>
+  <link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/admin.css">
+</head>
+<body>
+  <div id="loginView" class="login-view">
+    <div class="login-card">
+      <img src="/assets/img/logo.svg" alt="DROPPFY" class="login-logo">
+      <h1>Painel do Distribuidor</h1>
+      <p>Acesso restrito à administração DROPPFY.</p>
+      <form id="adminLoginForm">
+        <div class="field">
+          <label>E-mail ou WhatsApp</label>
+          <input type="text" id="loginUser" placeholder="admin@droppfy.com" autocomplete="username" required>
+        </div>
+        <div class="field">
+          <label>Senha</label>
+          <input type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password" required>
+        </div>
+        <button type="submit" class="btn btn-gold btn-block">ENTRAR</button>
+        <p id="loginError" class="login-error"></p>
+      </form>
+    </div>
+  </div>
+
+  <div id="appView" class="app-view" hidden>
+    <aside class="sidebar">
+      <div class="side-brand">
+        <img src="/assets/img/logo.svg" alt="DROPPFY" class="side-logo">
+        <span>DROPPFY</span>
+      </div>
+      <nav class="side-nav">
+        <button class="nav-item active" data-view="dashboard"><span class="ni">▦</span> Visão Geral</button>
+        <button class="nav-item" data-view="orders"><span class="ni">▤</span> Pedidos <b id="badgeOrders" class="badge"></b></button>
+        <button class="nav-item" data-view="users"><span class="ni">◉</span> Usuários</button>
+        <button class="nav-item" data-view="products"><span class="ni">▣</span> Produtos</button>
+        <button class="nav-item" data-view="promotions"><span class="ni">✉</span> Promoções</button>
+        <button class="nav-item" data-view="leads"><span class="ni">★</span> Cadastros (Leads)</button>
+      </nav>
+      <div class="side-foot">
+        <a href="/" target="_blank" class="side-link">← Ver o site</a>
+        <button id="logoutBtn" class="side-link">Sair</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <h2 id="viewTitle">Visão Geral</h2>
+        <div class="topbar-right">
+          <span class="admin-chip" id="adminChip"></span>
+        </div>
+      </header>
+
+      <section id="view-dashboard" class="view active">
+        <div class="stat-grid">
+          <div class="stat-card"><span class="stat-label">Pedidos</span><span class="stat-value" id="stOrders">—</span><span class="stat-sub" id="stToday">hoje: —</span></div>
+          <div class="stat-card gold"><span class="stat-label">Receita (pagos)</span><span class="stat-value" id="stRevenue">—</span><span class="stat-sub">pedidos pagos</span></div>
+          <div class="stat-card warn"><span class="stat-label">Pendentes</span><span class="stat-value" id="stPending">—</span><span class="stat-sub">aguardando envio</span></div>
+          <div class="stat-card"><span class="stat-label">Usuários</span><span class="stat-value" id="stUsers">—</span><span class="stat-sub">revendas cadastradas</span></div>
+          <div class="stat-card"><span class="stat-label">Leads</span><span class="stat-value" id="stLeads">—</span><span class="stat-sub">interessados</span></div>
+          <div class="stat-card"><span class="stat-label">Pagos</span><span class="stat-value" id="stPaid">—</span><span class="stat-sub">todos os tempos</span></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Últimos pedidos</h3>
+            <button class="btn btn-ghost btn-sm" data-goto="orders">Ver todos →</button>
+          </div>
+          <div class="table-wrap" id="dashOrdersWrap"><p class="empty">Carregando…</p></div>
+        </div>
+      </section>
+
+      <section id="view-orders" class="view">
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Pedidos</h3>
+            <div class="filter-row">
+              <select id="orderFilter" class="input input-sm">
+                <option value="">Todos os status</option>
+                <option value="pending">Pendente</option>
+                <option value="paid">Pago</option>
+                <option value="shipped">Enviado</option>
+                <option value="delivered">Entregue</option>
+                <option value="cancelled">Cancelado</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-wrap" id="ordersWrap"><p class="empty">Carregando…</p></div>
+        </div>
+      </section>
+
+      <section id="view-users" class="view">
+        <div class="panel">
+          <div class="panel-head"><h3>Usuários cadastrados</h3></div>
+          <div class="table-wrap" id="usersWrap"><p class="empty">Carregando…</p></div>
+        </div>
+      </section>
+
+      <section id="view-products" class="view">
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Produtos</h3>
+            <button class="btn btn-gold btn-sm" id="newProductBtn">+ Novo produto</button>
+          </div>
+          <div class="table-wrap" id="productsWrap"><p class="empty">Carregando…</p></div>
+        </div>
+      </section>
+
+      <section id="view-promotions" class="view">
+        <div class="panel">
+          <div class="panel-head"><h3>Enviar promoção no WhatsApp</h3></div>
+          <form id="promoForm" class="promo-form">
+            <div class="field"><label>Título</label><input type="text" id="promoTitle" class="input" placeholder="🔥 OFERTA DA SEMANA" required></div>
+            <div class="field"><label>Mensagem</label><textarea id="promoMsg" class="input" rows="4" placeholder="Descreva a promoção…" required></textarea></div>
+            <div class="promo-actions">
+              <button type="submit" class="btn btn-gold">GERAR LINKS p/ TODOS OS USUÁRIOS</button>
+              <span id="promoResult" class="promo-result"></span>
+            </div>
+          </form>
+          <div id="promoLinks" class="promo-links"></div>
+          <hr class="sep">
+          <h3>Histórico</h3>
+          <div class="table-wrap" id="promosWrap"><p class="empty">Carregando…</p></div>
+        </div>
+      </section>
+
+      <section id="view-leads" class="view">
+        <div class="panel">
+          <div class="panel-head"><h3>Cadastros de interesse (revenda)</h3></div>
+          <div class="table-wrap" id="leadsWrap"><p class="empty">Carregando…</p></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="modal" class="modal" hidden>
+    <div class="modal-card" id="modalCard"></div>
+  </div>
+  <div id="toastWrap"></div>
+
+  <script type="module" src="/assets/js/admin.js"></script>
+</body>
+</html>
