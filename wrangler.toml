@@ -1,0 +1,23 @@
+name = "business-cdd-bsb-droppfy"
+main = "worker/src/index.ts"
+compatibility_date = "2026-10-01"
+
+assets = { directory = "./site", binding = "ASSETS", not_found_handling = "single-page-application" }
+
+[observability]
+enabled = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "droppfy-db"
+database_id = "a2198f75-3e07-473a-9aeb-caeab1adb3d6"
+
+[[kv_namespaces]]
+binding = "KV"
+id = "a737a6fddef2433288ef789463a80681"
+
+[vars]
+ORIGIN_CEP = "70002900"
+STORE_HANDLE = "droppfy"
+SITE_URL = "https://business-cdd-bsb-droppfy.contatodroppfy.workers.dev"
+ADMIN_WHATSAPP = "5561983446343"

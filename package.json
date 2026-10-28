@@ -1,0 +1,11 @@
+{
+  "name": "droppfy-distribuicao",
+  "private": true,
+  "version": "2.0.0",
+  "description": "DROPPFY - O Poder da Distribuicao",
+  "scripts": {
+    "dev": "wrangler dev --local",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit"
+  }
+}
