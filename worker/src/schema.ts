@@ -97,15 +97,13 @@ export interface SeedProduct {
 }
 
 export async function seedProducts(db: D1Database, products: SeedProduct[]) {
-  const { results } = await db.prepare('SELECT COUNT(*) AS c FROM products').run();
-  if ((results?.[0] as any)?.c > 0) return false;
   const now = new Date().toISOString();
   const stmts: D1PreparedStatement[] = [];
   for (const p of products) {
     stmts.push(
       db
         .prepare(
-          `INSERT INTO products (id, slug, name, description, brand, category, type, image, gallery, base_price_cents, partner_url, badge, featured, active, sort, created_at)
+          `INSERT OR IGNORE INTO products (id, slug, name, description, brand, category, type, image, gallery, base_price_cents, partner_url, badge, featured, active, sort, created_at)
            VALUES (?, ?, ?, ?, ?, ?, ?, ?, '[]', ?, ?, ?, ?, 1, ?, ?)`
         )
         .bind(

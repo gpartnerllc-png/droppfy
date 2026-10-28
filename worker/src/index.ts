@@ -100,8 +100,9 @@ app.get('/api/products', async (c) => {
   const sql: string[] = ['active = 1'];
   const params: any[] = [];
   if (q) {
-    sql.push('(name LIKE ? OR brand LIKE ? OR category LIKE ? OR description LIKE ?)');
-    params.push(`%${q}%`, `%${q}%`, `%${q}%`, `%${q}%`);
+    const nq = q.replace(/\s+/g, '');
+    sql.push(`(REPLACE(name,' ','') LIKE ? OR REPLACE(brand,' ','') LIKE ? OR REPLACE(category,' ','') LIKE ? OR REPLACE(description,' ','') LIKE ?)`);
+    params.push(`%${nq}%`, `%${nq}%`, `%${nq}%`, `%${nq}%`);
   }
   if (category) { sql.push('category = ?'); params.push(category); }
   if (type) { sql.push('type = ?'); params.push(type); }
