@@ -1,4 +1,5 @@
 const TOKEN_KEY = 'droppfy_token';
+const API_BASE = location.hostname.endsWith('workers.dev') ? '' : 'https://business-cdd-bsb-droppfy.contatodroppfy.workers.dev';
 
 const $ = (sel) => document.querySelector(sel);
 const fmtBRL = (cents) => (Number(cents || 0) / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
@@ -9,7 +10,7 @@ async function api(path, opts = {}) {
   const headers = { 'Content-Type': 'application/json', ...(opts.headers || {}) };
   const token = localStorage.getItem(TOKEN_KEY);
   if (token) headers.Authorization = `Bearer ${token}`;
-  const res = await fetch(path, { ...opts, headers });
+  const res = await fetch(`${API_BASE}${path}`, { ...opts, headers });
   let data = {};
   try { data = await res.json(); } catch {}
   if (!res.ok) {

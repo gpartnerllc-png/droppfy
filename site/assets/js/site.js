@@ -1,5 +1,5 @@
 /* ================= DROPPFY SITE APP ================= */
-const API = '';
+const API = location.hostname.endsWith('workers.dev') ? '' : 'https://business-cdd-bsb-droppfy.contatodroppfy.workers.dev';
 const TOKEN_KEY = 'droppfy_token';
 const USER_KEY = 'droppfy_user';
 
